@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chi tiết người dùng</title>
+  <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<div class="container">
+  <h1>Thông tin chi tiết của người dùng</h1>
+  <table>
+    <tr>
+      <th>Họ:</th>
+      <td th:text="${user.lastName}"></td>
+    </tr>
+    <tr>
+      <th>Tên:</th>
+      <td th:text="${user.firstName}"></td>
+    </tr>
+    <tr>
+      <th>Ngày Sinh:</th>
+      <td th:text="${#temporals.format(user.dob, 'dd-MM-yyyy')}"></td>
+    </tr>
+    <tr>
+      <th>Quê quán:</th>
+      <td th:text="${user.hometown}"></td>
+    </tr>
+  </table>
+  <a href="/allUsers" class="btn">Quay lại danh sách người dùng</a>
+</div>
+</body>
+</html>

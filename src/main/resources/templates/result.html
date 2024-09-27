@@ -12,18 +12,26 @@
   <table>
     <thead>
     <tr>
+      <th>ID</th>
       <th>Họ</th>
       <th>Tên</th>
       <th>Ngày Sinh</th>
       <th>Quê quán</th>
+      <th>Actions</th>
     </tr>
     </thead>
     <tbody>
     <tr th:each="user : ${users}">
+      <td th:text="${user.id}"></td>
       <td th:text="${user.lastName}"></td>
       <td th:text="${user.firstName}"></td>
       <td th:text="${#temporals.format(user.dob, 'dd-MM-yyyy')}"></td>
       <td th:text="${user.hometown}"></td>
+      <td>
+        <a th:href="@{'/allUsers/' + ${user.id}}">Chi tiết</a>
+        <a th:href="@{'/editUser/' + ${user.id}}">Sửa</a>
+        <a th:href="@{'/deleteUser/' + ${user.id}}" onclick="return confirm('Bạn có chắc chắn muốn xóa không?')">Xóa</a>
+      </td>
     </tr>
     </tbody>
   </table>
