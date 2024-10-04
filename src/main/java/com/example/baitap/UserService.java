@@ -24,7 +24,7 @@ public class UserService {
     // Retrieve a user by their ID
     public UserDemo getUserById(int id) {
         Optional<UserDemo> user = userRepository.findById(id);
-        return user.orElse(null); // Return user if present, otherwise null
+        return user.orElse(null);
     }
 
 

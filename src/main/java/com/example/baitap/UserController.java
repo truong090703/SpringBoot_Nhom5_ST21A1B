@@ -39,7 +39,7 @@ public class UserController {
             model.addAttribute("user", user);
             return "userDetail";
         } else {
-            return "redirect:/allUsers";  // Redirect if user doesn't exist
+            return "redirect:/allUsers";
         }
     }
 
