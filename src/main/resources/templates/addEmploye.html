@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Thêm Nhân Viên</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+<h1>Thêm Nhân Viên Mới</h1>
+
+<form action="#" th:action="@{/addEmploye}" th:object="${employe}" method="post">
+    <label for="employeName">Tên nhân viên:</label>
+    <input type="text" id="employeName" th:field="*{employeName}" placeholder="Nhập tên nhân viên"><br><br>
+
+    <label for="companies">Chọn công ty:</label>
+    <select id="companies" multiple th:field="*{companies}">
+        <option th:each="company : ${allCompanies}" th:value="${company.id}" th:text="${company.companyName}"></option>
+    </select><br><br>
+
+    <button type="submit">Lưu</button>
+</form>
+
+<a href="/allEmployes">Quay lại danh sách nhân viên</a>
+</body>
+</html>

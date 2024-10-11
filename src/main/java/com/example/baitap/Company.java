@@ -1,22 +1,43 @@
 package com.example.baitap;
 
 import jakarta.persistence.*;
-import java.util.List;  // Import java.util.List
-import java.time.LocalDate;
+import java.util.List;
 
-@Table(name = "COMPANY")
 @Entity
+@Table(name = "COMPANY")
 public class Company {
+
     @Id
-    @Column
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+
     @Column
     private String companyName;
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "company_id")
     private List<UserDemo> users;
+
+    @ManyToMany(mappedBy = "companies")
+    private List<Employe> employes;
+
+    // Getters và Setters
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
 
     public List<UserDemo> getUsers() {
         return users;
@@ -26,17 +47,11 @@ public class Company {
         this.users = users;
     }
 
-    public int getId() {
-        return id;
+    public List<Employe> getEmployes() {
+        return employes;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-    public String getCompanyName() {
-        return companyName;
-    }
-    public void setCompanyName(String companyName) {
-        this.companyName = companyName;
+    public void setEmployes(List<Employe> employes) {
+        this.employes = employes;
     }
 }

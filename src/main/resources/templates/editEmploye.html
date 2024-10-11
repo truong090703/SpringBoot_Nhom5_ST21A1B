@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Chỉnh Sửa Nhân Viên</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+<h1>Chỉnh Sửa Nhân Viên</h1>
+
+<form action="#" th:action="@{/editEmploye/{id}(id=${employe.id})}" th:object="${employe}" method="post">
+    <label for="employeName">Tên nhân viên:</label>
+    <input type="text" id="employeName" th:field="*{employeName}" placeholder="Nhập tên nhân viên"><br><br>
+
+    <label for="companies">Chọn công ty:</label>
+    <select id="companies" multiple th:field="*{companies}">
+        <option th:each="company : ${allCompanies}" th:value="${company.id}" th:text="${company.companyName}"
+                th:selected="${#lists.contains(employe.companies, company)}"></option>
+    </select><br><br>
+
+    <button type="submit">Cập Nhật</button>
+</form>
+
+<a href="/allEmployes">Quay lại danh sách nhân viên</a>
+</body>
+</html>
