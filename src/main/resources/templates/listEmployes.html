@@ -12,11 +12,13 @@
         <th>Id</th>
         <th>Tên Nhân Viên</th>
         <th>Công Ty</th>
+        <th>Chức Vụ</th>
         <th>Actions</th>
     </tr>
     <tr th:each="employe : ${employes}">
         <td th:text="${employe.id}"></td>
         <td th:text="${employe.employeName}"></td>
+        <td th:text="${employe.position}"></td> <!-- Display position -->
         <td>
             <ul>
                 <li th:each="company : ${employe.companies}" th:text="${company.companyName}"></li>
@@ -27,6 +29,7 @@
             <a th:href="@{/deleteEmploye/{id}(id=${employe.id})}" onclick="return confirm('Bạn có chắc chắn muốn xóa?');">Xóa</a>
         </td>
     </tr>
+
 </table>
 
 <a href="/addEmploye">Thêm Nhân Viên</a>

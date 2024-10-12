@@ -14,6 +14,9 @@ public class Employe {
     @Column
     private String employeName;
 
+    @Column
+    private String position;
+
     @ManyToMany
     @JoinTable(
             name = "company_employe",
@@ -22,7 +25,6 @@ public class Employe {
     )
     private List<Company> companies;
 
-    // Getters và Setters
 
     public int getId() {
         return id;
@@ -38,6 +40,14 @@ public class Employe {
 
     public void setEmployeName(String employeName) {
         this.employeName = employeName;
+    }
+
+    public String getPosition() {
+        return position;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
     }
 
     public List<Company> getCompanies() {

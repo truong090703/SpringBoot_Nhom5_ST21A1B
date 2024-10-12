@@ -13,7 +13,7 @@
     <tr>
         <th>Id</th>
         <th>Company Name</th>
-        <th>Users</th>
+        <th>Employe</th>
     </tr>
     <tr th:each="company : ${companies}">
         <td th:text="${company.id}"></td>
@@ -21,12 +21,12 @@
         <td>
             <table>
                 <tr>
-                    <th>User Id</th>
-                    <th>User Name</th>
+                    <th>ID</th>
+                    <th>Name</th>
                 </tr>
-                <tr th:each="user : ${company.getUsers()}">
-                    <td th:text="${user.id}"></td>
-                    <td th:text="${user.getFirstName()}"></td>
+                <tr th:each="employe : ${company.getEmployes()}">
+                    <td th:text="${employe.id}"></td>
+                    <td th:text="${employe.employeName}"></td>
                 </tr>
             </table>
         </td>

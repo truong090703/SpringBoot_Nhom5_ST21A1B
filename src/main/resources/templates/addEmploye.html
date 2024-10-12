@@ -3,6 +3,7 @@
 <head>
     <title>Thêm Nhân Viên</title>
     <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/Employe.css}">
 </head>
 <body>
 <h1>Thêm Nhân Viên Mới</h1>
@@ -10,6 +11,9 @@
 <form action="#" th:action="@{/addEmploye}" th:object="${employe}" method="post">
     <label for="employeName">Tên nhân viên:</label>
     <input type="text" id="employeName" th:field="*{employeName}" placeholder="Nhập tên nhân viên"><br><br>
+
+    <label for="position">Chức vụ:</label>
+    <input type="text" id="position" th:field="*{position}" placeholder="Nhập chức vụ"><br><br>
 
     <label for="companies">Chọn công ty:</label>
     <select id="companies" multiple th:field="*{companies}">
